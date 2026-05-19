@@ -128,6 +128,9 @@ class CornDiseasePredictor:
         self.data_file = data_file
         self.outputs_root = outputs_root
 
+        # 统一模型产物输出到对应模型目录下（例如：.../models/Xgboost）
+        self.base_model_dir = Path(self.outputs_root).resolve().parent
+
         self.data: pd.DataFrame | None = None
         self.models: dict[str, Any] = {}
         self.scalers: dict[str, Any] = {}
@@ -154,8 +157,7 @@ class CornDiseasePredictor:
             self.figures_feature_importance_dir,
             self.group_plot_root,
             self.group_table_root,
-            "models",
-            os.path.join("models", "Xgboost"),
+            str(self.base_model_dir),
         ]:
             os.makedirs(p, exist_ok=True)
 
@@ -887,9 +889,9 @@ class CornDiseasePredictor:
         self.feature_columns_by_model[model_key] = feature_columns
         self.best_params_by_model[model_key] = best_params
 
-        joblib.dump(final_model, f"models/model_{disease_name}_{target_type}.pkl")
-        joblib.dump(final_scaler, f"models/scaler_{disease_name}_{target_type}.pkl")
-        joblib.dump(final_imputer, f"models/imputer_{disease_name}_{target_type}.pkl")
+        joblib.dump(final_model, self.base_model_dir / f"model_{disease_name}_{target_type}.pkl")
+        joblib.dump(final_scaler, self.base_model_dir / f"scaler_{disease_name}_{target_type}.pkl")
+        joblib.dump(final_imputer, self.base_model_dir / f"imputer_{disease_name}_{target_type}.pkl")
 
         fold_df = pd.DataFrame(best_fold_details)
         fold_csv = os.path.join(self.tables_model_eval_dir, f"groupkfold_{model_key}.csv")
@@ -1023,7 +1025,7 @@ class CornDiseasePredictor:
             },
         }
 
-        bundle_path = Path("models") / "Xgboost" / f"xg_full_bundle_{self.bundle_file_keys[disease_name]}.pt"
+        bundle_path = self.base_model_dir / f"xg_full_bundle_{self.bundle_file_keys[disease_name]}.pt"
         bundle_path.parent.mkdir(parents=True, exist_ok=True)
         joblib.dump(bundle, bundle_path)
         print(f"✓ 已保存 XGBoost full bundle: {bundle_path}")

@@ -29,14 +29,19 @@ def main() -> None:
     print(" " * 18 + "玉米病害 XGBoost 训练与打包系统")
     print("=" * 70)
 
-    disease_file = "data/2025定点监测叶斑病调查数据.xlsx"
-    weather_file = "data/2025年定点监测气象数据.xlsx"
-    processed_file = "data/processed_data.csv"
-    outputs_root = "outputs"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
 
+    disease_file = os.path.join(script_dir, "data", "2025定点监测叶斑病调查数据.xlsx")
+    weather_file = os.path.join(script_dir, "data", "2025年定点监测气象数据.xlsx")
+
+    # 将所有运行输出放到对应模型目录下，便于管理多模型产物
+    base_model_dir = os.path.join(script_dir, "models", "Xgboost")
+    processed_file = os.path.join(base_model_dir, "processed_data.csv")
+    outputs_root = os.path.join(base_model_dir, "outputs")
+
+    os.makedirs(os.path.join(script_dir, "models"), exist_ok=True)
+    os.makedirs(base_model_dir, exist_ok=True)
     os.makedirs(outputs_root, exist_ok=True)
-    os.makedirs("models", exist_ok=True)
-    os.makedirs(os.path.join("models", "Xgboost"), exist_ok=True)
 
     if not os.path.exists(disease_file):
         print(f"错误: 找不到病害数据文件 {disease_file}")
@@ -49,7 +54,10 @@ def main() -> None:
     print("-" * 70)
     try:
         preprocessor = CornDiseaseDataPreprocessor(disease_file, weather_file)
-        preprocessor.process_all(output_file=processed_file)
+        preprocessor.process_all(
+            output_file=processed_file,
+            feature_file=os.path.join(base_model_dir, "xgb_feature_columns.txt"),
+        )
         preprocessor.save_feature_target_correlations(
             output_dir=os.path.join(outputs_root, "figures", "feature_importance")
         )
@@ -78,12 +86,13 @@ def main() -> None:
     print("=" * 70)
     print("\n生成文件：")
     print(f"  1. {processed_file} - 预处理后的训练数据")
-    print("  2. models/model_*.pkl - 单目标 XGBoost 模型")
-    print("  3. models/scaler_*.pkl - 标准化器")
-    print("  4. models/imputer_*.pkl - 缺失值填补器")
-    print("  5. models/Xgboost/xg_full_bundle_gray.pt")
-    print("  6. models/Xgboost/xg_full_bundle_blight.pt")
-    print("  7. models/Xgboost/xg_full_bundle_white.pt")
+    print(f"  2. {os.path.join(base_model_dir, 'xgb_feature_columns.txt')} - 训练特征列")
+    print(f"  3. {os.path.join(base_model_dir, 'model_*_*.pkl')} - 单目标 XGBoost 模型")
+    print(f"  4. {os.path.join(base_model_dir, 'scaler_*_*.pkl')} - 标准化器")
+    print(f"  5. {os.path.join(base_model_dir, 'imputer_*_*.pkl')} - 缺失值填补器")
+    print(f"  6. {os.path.join(base_model_dir, 'xg_full_bundle_gray.pt')}")
+    print(f"  7. {os.path.join(base_model_dir, 'xg_full_bundle_blight.pt')}")
+    print(f"  8. {os.path.join(base_model_dir, 'xg_full_bundle_white.pt')}")
     print("\n在线未来 7 天预测时，请在现有在线链路中传入 model_type='XGBoost'。")
 
 
