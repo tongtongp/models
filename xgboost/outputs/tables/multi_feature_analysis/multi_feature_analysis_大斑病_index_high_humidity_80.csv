@@ -1,0 +1,2 @@
+﻿feature,xgb_imp,spearman_corr,spearman_abs_imp,perm_imp,shap_imp
+连续高湿80天数,0.43040708,0.426369816166777,0.426369816166777,1.1178031929711918,
