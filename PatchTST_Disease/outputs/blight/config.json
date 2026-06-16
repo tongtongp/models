@@ -1,0 +1,121 @@
+{
+  "seq_len": 28,
+  "patch_len": 7,
+  "stride": 3,
+  "d_model": 32,
+  "n_heads": 4,
+  "e_layers": 1,
+  "d_ff": 64,
+  "dropout": 0.25,
+  "batch_size": 16,
+  "epochs": 200,
+  "learning_rate": 0.0005,
+  "weight_decay": 0.001,
+  "patience": 35,
+  "split_mode": "within_site_time",
+  "seed": 42,
+  "disease_name": "blight",
+  "seq_col": "weather_seq_28",
+  "target_cols": [
+    "blight_incidence",
+    "blight_index"
+  ],
+  "prev_target_cols": [
+    "prev_blight_incidence",
+    "prev_blight_index"
+  ],
+  "delta_target_cols": [
+    "delta_blight_incidence",
+    "delta_blight_index"
+  ],
+  "tab_feature_cols": [
+    "gdd_cum",
+    "stage_code",
+    "rain_21d_sum",
+    "rain_7d_sum",
+    "rain_14d_sum",
+    "rain_28d_sum",
+    "rainy_streak_days",
+    "rain_gap_days",
+    "temp_21d_mean",
+    "temp_7d_mean",
+    "temp_14d_mean",
+    "temp_28d_mean",
+    "temp_range_24h_c",
+    "rh_21d_mean",
+    "rh_7d_mean",
+    "rh_14d_mean",
+    "rh_28d_mean",
+    "humidity_range_daily",
+    "soil_rel_humidity_14d_mean",
+    "soil_rel_humidity_7d_mean",
+    "soil_rel_humidity_21d_mean",
+    "soil_rel_humidity_28d_mean",
+    "wind_7d_mean",
+    "wind_28d_mean",
+    "is_weak_wind_day",
+    "weak_wind_streak_days",
+    "radiation_7d_mean",
+    "radiation_28d_mean",
+    "low_radiation_streak_days",
+    "hot_streak_days",
+    "cold_streak_days",
+    "optimal_temp_streak_days",
+    "high_humidity_streak_days",
+    "high_humidity_7d_count",
+    "high_humidity_28d_count",
+    "heavy_rain_7d_count",
+    "heavy_rain_28d_count",
+    "heavy_rain_streak_days",
+    "max_single_day_rain_7d",
+    "max_single_day_rain_28d",
+    "hot_humid_streak_days",
+    "optimal_temp_humid_streak_days",
+    "weak_wind_humid_streak_days",
+    "prev_blight_incidence",
+    "prev_blight_index"
+  ],
+  "seq_feature_dim": 24,
+  "tab_feature_dim": 45,
+  "split_info": {
+    "train": {
+      "rows": 67,
+      "sites": 11,
+      "series": 16,
+      "target_mean": {
+        "blight_incidence": 9.432835820895523,
+        "blight_index": 3.3300164842454394
+      },
+      "target_std": {
+        "blight_incidence": 28.493111961868127,
+        "blight_index": 12.790929445860689
+      }
+    },
+    "val": {
+      "rows": 14,
+      "sites": 10,
+      "series": 14,
+      "target_mean": {
+        "blight_incidence": 16.071428571428573,
+        "blight_index": 7.912698174603174
+      },
+      "target_std": {
+        "blight_incidence": 34.72023758500486,
+        "blight_index": 20.626611662448827
+      }
+    },
+    "test": {
+      "rows": 24,
+      "sites": 10,
+      "series": 14,
+      "target_mean": {
+        "blight_incidence": 9.5,
+        "blight_index": 6.703703425925926
+      },
+      "target_std": {
+        "blight_incidence": 27.640549922170507,
+        "blight_index": 22.388490716675065
+      }
+    }
+  }
+}

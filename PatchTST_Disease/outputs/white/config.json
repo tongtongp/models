@@ -1,0 +1,121 @@
+{
+  "seq_len": 28,
+  "patch_len": 7,
+  "stride": 3,
+  "d_model": 32,
+  "n_heads": 4,
+  "e_layers": 1,
+  "d_ff": 64,
+  "dropout": 0.25,
+  "batch_size": 16,
+  "epochs": 200,
+  "learning_rate": 0.0005,
+  "weight_decay": 0.001,
+  "patience": 35,
+  "split_mode": "within_site_time",
+  "seed": 42,
+  "disease_name": "white",
+  "seq_col": "weather_seq_28",
+  "target_cols": [
+    "white_incidence",
+    "white_index"
+  ],
+  "prev_target_cols": [
+    "prev_white_incidence",
+    "prev_white_index"
+  ],
+  "delta_target_cols": [
+    "delta_white_incidence",
+    "delta_white_index"
+  ],
+  "tab_feature_cols": [
+    "gdd_cum",
+    "stage_code",
+    "rain_21d_sum",
+    "rain_7d_sum",
+    "rain_14d_sum",
+    "rain_28d_sum",
+    "rainy_streak_days",
+    "rain_gap_days",
+    "temp_21d_mean",
+    "temp_7d_mean",
+    "temp_14d_mean",
+    "temp_28d_mean",
+    "temp_range_24h_c",
+    "rh_21d_mean",
+    "rh_7d_mean",
+    "rh_14d_mean",
+    "rh_28d_mean",
+    "humidity_range_daily",
+    "soil_rel_humidity_14d_mean",
+    "soil_rel_humidity_7d_mean",
+    "soil_rel_humidity_21d_mean",
+    "soil_rel_humidity_28d_mean",
+    "wind_7d_mean",
+    "wind_28d_mean",
+    "is_weak_wind_day",
+    "weak_wind_streak_days",
+    "radiation_7d_mean",
+    "radiation_28d_mean",
+    "low_radiation_streak_days",
+    "hot_streak_days",
+    "cold_streak_days",
+    "optimal_temp_streak_days",
+    "high_humidity_streak_days",
+    "high_humidity_7d_count",
+    "high_humidity_28d_count",
+    "heavy_rain_7d_count",
+    "heavy_rain_28d_count",
+    "heavy_rain_streak_days",
+    "max_single_day_rain_7d",
+    "max_single_day_rain_28d",
+    "hot_humid_streak_days",
+    "optimal_temp_humid_streak_days",
+    "weak_wind_humid_streak_days",
+    "prev_white_incidence",
+    "prev_white_index"
+  ],
+  "seq_feature_dim": 24,
+  "tab_feature_dim": 45,
+  "split_info": {
+    "train": {
+      "rows": 66,
+      "sites": 11,
+      "series": 16,
+      "target_mean": {
+        "white_incidence": 8.757575757575758,
+        "white_index": 2.237373737373737
+      },
+      "target_std": {
+        "white_incidence": 26.395052685006355,
+        "white_index": 8.151986080297359
+      }
+    },
+    "val": {
+      "rows": 14,
+      "sites": 10,
+      "series": 14,
+      "target_mean": {
+        "white_incidence": 37.67857142857143,
+        "white_index": 13.464285714285717
+      },
+      "target_std": {
+        "white_incidence": 44.98476215932026,
+        "white_index": 19.38307329827416
+      }
+    },
+    "test": {
+      "rows": 24,
+      "sites": 10,
+      "series": 14,
+      "target_mean": {
+        "white_incidence": 45.833333333333336,
+        "white_index": 27.5
+      },
+      "target_std": {
+        "white_incidence": 49.82608642958916,
+        "white_index": 33.843351311351235
+      }
+    }
+  }
+}

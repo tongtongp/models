@@ -1,0 +1,131 @@
+{
+  "model": {
+    "gray_incidence": {
+      "MAE": 5.801475524902344,
+      "RMSE": 16.17538363961337,
+      "R2": 0.8755886554718018
+    },
+    "gray_index": {
+      "MAE": 6.234590530395508,
+      "RMSE": 10.150951141741903,
+      "R2": 0.8841314911842346
+    },
+    "blight_incidence": {
+      "MAE": 0.04354284703731537,
+      "RMSE": 0.06534522925412385,
+      "R2": 0.9999943971633911
+    },
+    "blight_index": {
+      "MAE": 1.5884943008422852,
+      "RMSE": 5.5094220346054,
+      "R2": 0.9121540188789368
+    },
+    "white_incidence": {
+      "MAE": 10.52546215057373,
+      "RMSE": 26.660768365225685,
+      "R2": 0.7136931419372559
+    },
+    "white_index": {
+      "MAE": 11.528157234191895,
+      "RMSE": 18.52790254204242,
+      "R2": 0.6229569911956787
+    }
+  },
+  "train_mean_baseline": {
+    "gray_incidence": {
+      "MAE": 8.1162109375,
+      "RMSE": 16.816456609245154,
+      "R2": 0.8655317425727844
+    },
+    "gray_index": {
+      "MAE": 8.023003578186035,
+      "RMSE": 10.96532175770506,
+      "R2": 0.8647944331169128
+    },
+    "blight_incidence": {
+      "MAE": 0.12890625,
+      "RMSE": 0.13463818702823505,
+      "R2": 0.9999762773513794
+    },
+    "blight_index": {
+      "MAE": 1.7578128576278687,
+      "RMSE": 5.588002923439042,
+      "R2": 0.909630298614502
+    },
+    "white_incidence": {
+      "MAE": 11.731770515441895,
+      "RMSE": 26.671861269767994,
+      "R2": 0.7134548425674438
+    },
+    "white_index": {
+      "MAE": 11.815827369689941,
+      "RMSE": 18.802622283509503,
+      "R2": 0.6116930246353149
+    }
+  },
+  "split_info": {
+    "train": {
+      "rows": 64,
+      "sites": 11,
+      "series": 16,
+      "target_mean": {
+        "gray_incidence": 32.0625,
+        "gray_index": 11.213541666666668,
+        "blight_incidence": 8.3125,
+        "blight_index": 2.4010415625,
+        "white_incidence": 7.109375,
+        "white_index": 1.7361111111111112
+      },
+      "target_std": {
+        "gray_incidence": 43.32314082854566,
+        "gray_index": 18.544241963139434,
+        "blight_incidence": 26.79020051716672,
+        "blight_index": 10.088050211103871,
+        "white_incidence": 24.13511263925186,
+        "white_index": 7.290846514722042
+      }
+    },
+    "val": {
+      "rows": 14,
+      "sites": 10,
+      "series": 14,
+      "target_mean": {
+        "gray_incidence": 48.642857142857146,
+        "gray_index": 19.079365079365083,
+        "blight_incidence": 16.071428571428573,
+        "blight_index": 7.349206111111111,
+        "white_incidence": 32.17857142857143,
+        "white_index": 10.043650793650794
+      },
+      "target_std": {
+        "gray_incidence": 42.75278962135879,
+        "gray_index": 22.388718679546336,
+        "blight_incidence": 34.72023758500486,
+        "blight_index": 18.744304674686287,
+        "white_incidence": 41.60941134220596,
+        "white_index": 16.0047416167899
+      }
+    },
+    "test": {
+      "rows": 24,
+      "sites": 10,
+      "series": 14,
+      "target_mean": {
+        "gray_incidence": 57.9375,
+        "gray_index": 30.525462962962962,
+        "blight_incidence": 9.5,
+        "blight_index": 5.759258981481481,
+        "white_incidence": 45.833333333333336,
+        "white_index": 24.425925925925924
+      },
+      "target_std": {
+        "gray_incidence": 45.8590032281921,
+        "gray_index": 29.82112731872033,
+        "blight_incidence": 27.640549922170507,
+        "blight_index": 18.588534388061905,
+        "white_incidence": 49.82608642958916,
+        "white_index": 30.17385608802511
+      }
+    }
+  }
+}

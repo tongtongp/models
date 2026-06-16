@@ -1,0 +1,4 @@
+﻿disease,bundle_path,predictions,metrics
+gray,C:\Users\tong2\Desktop\models\Manba\models\manba_bundle_gray.pt,C:\Users\tong2\Desktop\models\Manba\outputs\predictions_gray.csv,C:\Users\tong2\Desktop\models\Manba\outputs\metrics_gray.csv
+blight,C:\Users\tong2\Desktop\models\Manba\models\manba_bundle_blight.pt,C:\Users\tong2\Desktop\models\Manba\outputs\predictions_blight.csv,C:\Users\tong2\Desktop\models\Manba\outputs\metrics_blight.csv
+white,C:\Users\tong2\Desktop\models\Manba\models\manba_bundle_white.pt,C:\Users\tong2\Desktop\models\Manba\outputs\predictions_white.csv,C:\Users\tong2\Desktop\models\Manba\outputs\metrics_white.csv

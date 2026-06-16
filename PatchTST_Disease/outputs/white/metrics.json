@@ -1,0 +1,82 @@
+{
+  "test_loss": 1.3778309027353923,
+  "reports": {
+    "patchtst": {
+      "white_incidence": {
+        "MAE": 7.508772373199463,
+        "RMSE": 21.630220169026178,
+        "R2": 0.8115447163581848
+      },
+      "white_index": {
+        "MAE": 10.66085147857666,
+        "RMSE": 17.636540956329757,
+        "R2": 0.7284310460090637
+      }
+    },
+    "train_mean_delta_baseline": {
+      "white_incidence": {
+        "MAE": 8.791035652160645,
+        "RMSE": 21.99952281087592,
+        "R2": 0.8050546050071716
+      },
+      "white_index": {
+        "MAE": 11.127875328063965,
+        "RMSE": 17.922081890425268,
+        "R2": 0.7195663452148438
+      }
+    },
+    "previous_value_baseline": {
+      "white_incidence": {
+        "MAE": 7.1875,
+        "RMSE": 23.009282105017558,
+        "R2": 0.7867482304573059
+      },
+      "white_index": {
+        "MAE": 11.020833015441895,
+        "RMSE": 18.651108843282866,
+        "R2": 0.6962875127792358
+      }
+    }
+  },
+  "split_info": {
+    "train": {
+      "rows": 66,
+      "sites": 11,
+      "series": 16,
+      "target_mean": {
+        "white_incidence": 8.757575757575758,
+        "white_index": 2.237373737373737
+      },
+      "target_std": {
+        "white_incidence": 26.395052685006355,
+        "white_index": 8.151986080297359
+      }
+    },
+    "val": {
+      "rows": 14,
+      "sites": 10,
+      "series": 14,
+      "target_mean": {
+        "white_incidence": 37.67857142857143,
+        "white_index": 13.464285714285717
+      },
+      "target_std": {
+        "white_incidence": 44.98476215932026,
+        "white_index": 19.38307329827416
+      }
+    },
+    "test": {
+      "rows": 24,
+      "sites": 10,
+      "series": 14,
+      "target_mean": {
+        "white_incidence": 45.833333333333336,
+        "white_index": 27.5
+      },
+      "target_std": {
+        "white_incidence": 49.82608642958916,
+        "white_index": 33.843351311351235
+      }
+    }
+  }
+}
